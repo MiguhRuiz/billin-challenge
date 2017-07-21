@@ -1,0 +1,35 @@
+.header {
+    background: lightgray;
+    display: flex;
+    flex-direction: row;
+    height: 50px;
+    justify-content: space-between;
+}
+
+.header-titles {
+    display: flex;
+    flex-direction: row;
+}
+
+.header-titles h2 {
+    margin: .5em 2em;
+}
+
+.header-titles h3 {
+    margin: .9em 0;
+    text-decoration: underline;
+}
+
+.header-titles h3::before {
+    content: open-quote;
+}
+
+.header-titles h3::after {
+    content: close-quote;
+}
+
+.button-add {
+    color: #757575;
+    font-size: 2.5em;
+    margin: .15em 1em 0 0;
+}
