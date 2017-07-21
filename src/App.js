@@ -5,6 +5,7 @@ import './App.css'
 
 import Header from './components/Header'
 import Footer from './components/Footer'
+import Articles from './components/Articles'
 
 class App extends Component {
   // definition
@@ -27,6 +28,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
+        <Articles articles={this.state.articles}/>
         <Footer />
       </div>
     );

@@ -1,0 +1,25 @@
+.Article {
+    margin: 2em 6em;
+    width: 400px;
+}
+
+.Article-title,
+.Article-author {
+    display: flex;
+    flex-direction: row;
+}
+
+.Article-title-icon {
+    font-size: 2em;
+    margin-left: .5em;
+    margin-top: .45em;
+}
+
+.Article-author-name {
+    font-weight: bold;
+    margin-left: .5em;
+}
+
+.Article-excerpt {
+    font-weight: normal;
+}
