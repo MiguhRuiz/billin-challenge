@@ -4,6 +4,7 @@ import { ARTICLES_QUERY } from './queries';
 import './App.css'
 
 import Header from './components/Header'
+import Footer from './components/Footer'
 
 class App extends Component {
   // definition
@@ -26,6 +27,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
+        <Footer />
       </div>
     );
   }

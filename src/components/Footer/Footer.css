@@ -1,0 +1,43 @@
+.footer {
+    background: #152131;
+    color: white;
+    display: flex;
+    height: 160px;
+    justify-content: space-between;
+}
+
+.footer-company {
+    margin: 3em 4em 0 0;
+}
+
+.footer-developer {
+    display: flex;
+    flex-direction: row;
+    margin: 2em 0 0 2em;
+}
+
+.footer-developer img {
+    height: 100px;
+    width: 100px;
+}
+
+.footer-developer-texts {
+    display: flex;
+    flex-direction: column;
+    font-weight: 800;
+    margin: 2em 0 0 2em;
+    vertical-align: middle;
+}
+
+.footer-phrase {
+    font-size: 1.2em;
+    margin: 3.5em 0 0 10em;
+}
+
+.footer-phrase-text {
+    margin-right: .5em;
+}
+
+.fa-heart {
+    margin-right: .5em;
+}
