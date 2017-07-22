@@ -1,11 +1,25 @@
 import React, { Component } from 'react';
-import request from '../request';
-import { ARTICLES_QUERY } from '../queries';
+import { connect } from 'react-redux'
+import { getArticles, getArticlesSuccess, getArticlesFailure } from '../actions'
 import './Articles.css'
 
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import Articles from '../components/Articles'
+
+const mapStateToProps = (state) => {
+  return {
+    articlesList: state.articles.articlesList.articles
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getArticles: () => {
+      dispatch(getArticles())
+    }
+  }
+}
 
 class App extends Component {
   // definition
@@ -18,9 +32,7 @@ class App extends Component {
 
   // lifecycle
   componentWillMount() {
-    request(ARTICLES_QUERY).then(response => {
-      this.setState({ articles: response.data.articles });
-    });
+    this.props.getArticles()
   }
 
   // Renders
@@ -28,11 +40,11 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <Articles articles={this.state.articles}/>
+        <Articles articles={this.props.articlesList}/>
         <Footer />
       </div>
     );
   }
 }
 
-export default App;
+export default connect(mapStateToProps, mapDispatchToProps)(App);
