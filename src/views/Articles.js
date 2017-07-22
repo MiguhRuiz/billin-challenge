@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import request from './request';
-import { ARTICLES_QUERY } from './queries';
-import './App.css'
+import request from '../request';
+import { ARTICLES_QUERY } from '../queries';
+import './Articles.css'
 
-import Header from './components/Header'
-import Footer from './components/Footer'
-import Articles from './components/Articles'
+import Header from '../components/Header'
+import Footer from '../components/Footer'
+import Articles from '../components/Articles'
 
 class App extends Component {
   // definition
