@@ -12,7 +12,7 @@ export function getArticles() {
     return (dispatch, getState) => {
         request(ARTICLES_QUERY)
             .then(res => dispatch(getArticlesSuccess(res)))
-            .catch(err => dispatch(getArticleFailure(err)))
+            .catch(err => dispatch(getArticlesFailure(err)))
     }
 }
 
@@ -23,7 +23,7 @@ export function getArticlesSuccess(data) {
     }
 }
 
-export function getArticleFailure(data) {
+export function getArticlesFailure(data) {
     return {
         type: GET_ARTICLES_FAILURE,
         payload: data
@@ -33,9 +33,9 @@ export function getArticleFailure(data) {
 export function getArticle(id) {
     return(dispatch, getState) => {
         request(ARTICLES_QUERY)
-            .then(res => dispatch(getArticleSuccess(res)))
-            .then(articles => articles.filter(article => article.id === id))
-            .catch(err => dispatch(getArticlFailure(err)))
+            .then(result => result.data.articles.filter(article => article.id === id))
+            .then(article => dispatch(getArticleSuccess(article)))
+            .catch(err => dispatch(getArticleFailure(err)))
     }
 }
 
@@ -46,7 +46,7 @@ export function getArticleSuccess(data) {
     }
 }
 
-export function getArticlFailure(data) {
+export function getArticleFailure(data) {
     return {
         type: GET_ARTICLE_FAILURE,
         payload: data

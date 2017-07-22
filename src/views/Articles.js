@@ -21,7 +21,7 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-class App extends Component {
+class ArticlesView extends Component {
   // definition
   constructor(props) {
     super(props);
@@ -47,4 +47,4 @@ class App extends Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(ArticlesView);
