@@ -1,12 +1,16 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import './Article.css'
 
 class Article extends Component {
     render() {
+        const articleUrl = `/${this.props.id}`
         return(
             <div className="Article">
                 <div className="Article-title">
-                    <h3 className="Article-title-text">{this.props.title}</h3>
+                    <Link to={articleUrl}>
+                        <h3 className="Article-title-text">{this.props.title}</h3>
+                    </Link>
                     <span className="Article-title-icon fa fa-angle-right"></span>
                 </div>
                 <div className="Article-author">

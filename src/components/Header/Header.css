@@ -11,6 +11,11 @@
     flex-direction: row;
 }
 
+.header-titles a {
+    color: #000;
+    text-decoration: none;
+}
+
 .header-titles h2 {
     margin: .5em 2em;
 }

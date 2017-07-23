@@ -12,7 +12,7 @@ function Articles(props) {
             <div className="Articles">
                 {
                     props.articles.map(article => (
-                        <Article {...article} />
+                        <Article {...article} key={article.id}/>
                     ))
                 }
             </div>

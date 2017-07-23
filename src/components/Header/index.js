@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import './Header.css'
 
 function Header(props) {
@@ -6,7 +7,9 @@ function Header(props) {
     return(
         <div className='header'>
             <div className='header-titles'>
-                <h2>Billin Articles</h2>
+                <Link to='/'>
+                    <h2>Billin Articles</h2>
+                </Link>
                 {Title}
             </div>
             <div className='header-buttons'>
