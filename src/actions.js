@@ -1,5 +1,5 @@
 import request from './request'
-import { ARTICLES_QUERY } from './queries'
+import { ARTICLES_QUERY, ARTICLE_QUERY } from './queries'
 
 export const GET_ARTICLES = 'GET_ARTICLES'
 export const GET_ARTICLES_SUCCESS = 'GET_ARTICLES_SUCCESS'
@@ -32,7 +32,7 @@ export function getArticlesFailure(data) {
 
 export function getArticle(id) {
     return(dispatch, getState) => {
-        request(ARTICLES_QUERY)
+        request(ARTICLE_QUERY)
             .then(result => result.data.articles.filter(article => article.id === id))
             .then(article => dispatch(getArticleSuccess(article)))
             .catch(err => dispatch(getArticleFailure(err)))
