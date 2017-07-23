@@ -4,7 +4,7 @@ import { getArticle, getArticleSuccess, getArticleFailure } from '../actions'
 
 import Header from '../components/Header'
 import Footer from '../components/Footer'
-import Article from '../components/Article'
+import SingleArticle from '../components/SingleArticle'
 
 const mapStateToProps = (state) => {
     return {
@@ -27,8 +27,8 @@ class ArticleView extends React.Component {
     render() {
         return(
             <div className="App">
-                <Header />
-                <Article {...this.props.article.article[0]}/>
+                <Header/>
+                <SingleArticle {...this.props.article.article[0]}/>
                 <Footer />
             </div>
         )
