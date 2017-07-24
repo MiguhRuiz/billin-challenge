@@ -4,6 +4,7 @@ import {
   GraphQLString,
   GraphQLList,
   GraphQLSchema,
+  GraphQLInputObjectType
 } from 'graphql';
 import db from './db';
 
@@ -48,8 +49,55 @@ const Query = new GraphQLObjectType({
   }),
 });
 
+const Mutations = new GraphQLObjectType({
+  name: 'Mutations',
+  description: 'Changes to Articles',
+  fields: () => ({
+    addArticle: {
+      type: articleType,
+      description: 'Create a New Article',
+      args: {
+        article: { type: articleInputType }
+      },
+      resolve: (value, {article}) => {
+        const model = new db.Article(article)
+        return model.save()
+      }
+    }
+  })
+})
+
+const articleInputType = new GraphQLInputObjectType({
+  name: 'ArticleInput',
+  description: 'This represents a Article',
+  fields: () => ({
+    author: {
+      type: GraphQLString,
+    },
+    content: {
+      type: GraphQLString,
+    },
+    excerpt: {
+      type: GraphQLString,
+    },
+    id: {
+      type: GraphQLString,
+    },
+    published: {
+      type: GraphQLBoolean,
+    },
+    tags: {
+      type: new GraphQLList(GraphQLString),
+    },
+    title: {
+      type: GraphQLString,
+    },
+  }),
+});
+
 const Schema = new GraphQLSchema({
   query: Query,
+  mutation: Mutations
 });
 
 export default Schema;
