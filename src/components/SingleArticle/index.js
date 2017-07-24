@@ -5,7 +5,10 @@ function SingleArticle(props) {
     return(
         <div className="App">
             <article className="SingleArticle">
-                <h1 className="SingleArticle-Name">{props.title}</h1>
+                <div className="SingleArticle-Menu">
+                    <h1 className="SingleArticle-Name">{props.title}</h1>
+                    <button className="SingleArticle-Delete fa fa-trash" onClick={props.deleteArticle}/>
+                </div>
                 <div className="SingleArticle-Author">
                     <span className="SingleArticle-Author-Detail">Por:</span>
                     <span className="SingleArticle-Author-Name">{props.author}</span>

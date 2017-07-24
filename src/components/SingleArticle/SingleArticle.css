@@ -27,3 +27,16 @@
     font-weight: 800;
     margin-left: 2em;
 }
+
+.SingleArticle-Menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.SingleArticle-Delete {
+    background: none;
+    border: 0;
+    font-size: 2em;
+    margin: .5em;
+}

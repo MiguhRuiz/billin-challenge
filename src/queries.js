@@ -16,3 +16,13 @@ export const ARTICLE_QUERY = `{
     tags
   }
 }`
+
+export const DELETE_ARTICLE_QUERY = function(id) {
+  return `
+    mutation {
+      deleteArticle(id: "${id}") {
+        id
+      }
+    }
+  `
+}
