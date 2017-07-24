@@ -4,7 +4,8 @@ import {
   GraphQLString,
   GraphQLList,
   GraphQLSchema,
-  GraphQLInputObjectType
+  GraphQLInputObjectType,
+  GraphQLNonNull
 } from 'graphql';
 import db from './db';
 
@@ -62,6 +63,16 @@ const Mutations = new GraphQLObjectType({
       resolve: (value, {article}) => {
         const model = new db.Article(article)
         return model.save()
+      }
+    },
+    deleteArticle: {
+      type: articleType,
+      description: 'Delete a single article',
+      args: {
+        id: { type: new GraphQLNonNull(GraphQLString) }
+      },
+      resolve: (value, {id}) => {
+        return db.Article.findByIdAndRemove({ _id: id })
       }
     }
   })
