@@ -80,7 +80,7 @@ const Mutations = new GraphQLObjectType({
       description: 'Update an existing article',
       args: {
         id: { type: new GraphQLNonNull(GraphQLString) },
-        article: { type: articleInputType }
+        article: { type: updateArticleInputType }
       },
       resolve: (value, args) => {
         return db.Article.findByIdAndUpdate({ _id: args.id }, args.article)
@@ -103,6 +103,28 @@ const articleInputType = new GraphQLInputObjectType({
       type: GraphQLString,
     },
     id: {
+      type: GraphQLString,
+    },
+    published: {
+      type: GraphQLBoolean,
+    },
+    tags: {
+      type: new GraphQLList(GraphQLString),
+    },
+    title: {
+      type: GraphQLString,
+    },
+  }),
+});
+
+const updateArticleInputType = new GraphQLInputObjectType({
+  name: 'UpdateArticleInput',
+  description: 'This represents a Article that is going to be updated',
+  fields: () => ({
+    author: {
+      type: GraphQLString,
+    },
+    content: {
       type: GraphQLString,
     },
     published: {
