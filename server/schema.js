@@ -74,6 +74,17 @@ const Mutations = new GraphQLObjectType({
       resolve: (value, {id}) => {
         return db.Article.findByIdAndRemove({ _id: id })
       }
+    },
+    updateArticle: {
+      type: articleType,
+      description: 'Update an existing article',
+      args: {
+        id: { type: new GraphQLNonNull(GraphQLString) },
+        article: { type: articleInputType }
+      },
+      resolve: (value, args) => {
+        return db.Article.findByIdAndUpdate({ _id: args.id }, args.article)
+      }
     }
   })
 })
