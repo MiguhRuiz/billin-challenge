@@ -26,3 +26,22 @@ export const DELETE_ARTICLE_QUERY = function(id) {
     }
   `
 }
+
+export const ADD_ARTICLE_QUERY = function(article) {
+  return `
+    mutation {
+      addArticle(article: {
+        title: "${article.title}",
+        author: "${article.author}",
+        content: "${article.content}",
+        tags: "${article.tags}"
+        excerpt: "${article.content.slice(0, 300)}"
+      }) {
+        id
+        author
+        excerpt
+        title
+      }
+    }
+  `
+}

@@ -12,9 +12,6 @@ function Header(props) {
                 </Link>
                 {Title}
             </div>
-            <div className='header-buttons'>
-                <span className='button-add fa fa-plus-circle' />
-            </div>
         </div>
     )
 }

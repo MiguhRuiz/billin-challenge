@@ -11,7 +11,7 @@ function Articles(props) {
         return(
             <div className="Articles">
                 {
-                    props.articles.map(article => (
+                    props.articles.reverse().map(article => (
                         <Article {...article} key={article.id}/>
                     ))
                 }
