@@ -13,3 +13,16 @@ body {
 .disabled {
     display: none !important;
 }
+
+.Btn-Submit {
+    background: #3d3f48;
+    border: 0;
+    border-radius: .5em;
+    color: #fff;
+    display: block;
+    font-size: 1em;
+    font-weight: 800;
+    height: 50px;
+    margin: 1em auto;
+    width: 200px;   
+}
