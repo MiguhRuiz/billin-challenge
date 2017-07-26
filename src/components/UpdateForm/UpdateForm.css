@@ -2,7 +2,8 @@ label {
     margin-right: 1em;
 }
 
-input {
+input,
+textarea {
     border: 0;
     font-size: 1em;
     height: 20px;
@@ -11,7 +12,7 @@ input {
 }
 
 textarea {
-    font-size: 1em;
+    height: auto !important;
 }
 
 .Update-Form {
