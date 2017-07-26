@@ -10,6 +10,10 @@ input {
     width: 500px;
 }
 
+textarea {
+    font-size: 1em;
+}
+
 .Update-Form {
     background: #8c8c8c;
     display: flex;

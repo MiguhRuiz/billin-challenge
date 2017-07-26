@@ -14,7 +14,7 @@ ReactDOM.render(
     <HashRouter>
       <div>
         <Route exact path='/' component={ArticlesView} />
-        <Route exact path='/:id' component={ArticleView} />
+        <Route exact path='/:id' component={ArticleView} /> 
       </div>
     </HashRouter> 
   </Provider>,
