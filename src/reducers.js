@@ -2,7 +2,8 @@ import { combineReducers } from 'redux'
 import { GET_ARTICLES, GET_ARTICLES_SUCCESS, GET_ARTICLES_FAILURE, 
         GET_ARTICLE, GET_ARTICLE_SUCCESS, GET_ARTICLE_FAILURE,
         DELETE_ARTICLE, DELETE_ARTICLE_SUCCESS, DELETE_ARTICLE_FAILURE,
-        ADD_ARTICLE, ADD_ARTICLE_SUCCESS, ADD_ARTICLE_FAILURE } from './actions'
+        ADD_ARTICLE, ADD_ARTICLE_SUCCESS, ADD_ARTICLE_FAILURE,
+        UPDATE_ARTICLE, UPDATE_ARTICLE_SUCCESS, UPDATE_ARTICLE_FAILURE } from './actions'
 
 const INITIAL_STATE = {
     articlesList: { articles: [], error: null, loading: false },
@@ -40,7 +41,14 @@ function ArticlesReducer(state=INITIAL_STATE, action) {
         case ADD_ARTICLE_FAILURE:
             error = action.payload.data || {message: action.payload.message}
             return {...state, articlesList: {articles: state.articlesList.articles, error: error, loading: false}}
-        default:
+        case UPDATE_ARTICLE:
+            return {...state, currentArticle: {article: [], error: null, loading: true} }
+        case UPDATE_ARTICLE_SUCCESS:
+            return {...state, currentArticle: {article: action.payload, error: null, loading: false} }
+        case UPDATE_ARTICLE_FAILURE:
+            error = action.payload.data || { message: action.payload.message }
+            return {...state, currentArticle: {article: [], error: error, loading: false}}
+            default:
             return state
     }
 }

@@ -1,5 +1,5 @@
 import request from './request'
-import { ARTICLES_QUERY, ARTICLE_QUERY, DELETE_ARTICLE_QUERY, ADD_ARTICLE_QUERY } from './queries'
+import { ARTICLES_QUERY, ARTICLE_QUERY, DELETE_ARTICLE_QUERY, ADD_ARTICLE_QUERY, UPDATE_ARTICLE_QUERY } from './queries'
 
 export const GET_ARTICLES = 'GET_ARTICLES'
 export const GET_ARTICLES_SUCCESS = 'GET_ARTICLES_SUCCESS'
@@ -13,6 +13,9 @@ export const DELETE_ARTICLE_FAILURE = 'DELETE_ARTICLE_FAILURE'
 export const ADD_ARTICLE = 'ADD_ARTICLE'
 export const ADD_ARTICLE_SUCCESS = 'ADD_ARTICLE_SUCCESS'
 export const ADD_ARTICLE_FAILURE = 'ADD_ARTICLE_FAILURE'
+export const UPDATE_ARTICLE = 'UPDATE_ARTICLE'
+export const UPDATE_ARTICLE_SUCCESS = 'UPDATE_ARTICLE_SUCCESS'
+export const UPDATE_ARTICLE_FAILURE = 'UPDATE_ARTICLE_FAILURE'
 
 export function getArticles() {
     return (dispatch, getState) => {
@@ -100,6 +103,28 @@ export function addArticleSuccess(data) {
 export function addArticleFailure(data) {
     return {
         type: ADD_ARTICLE_FAILURE,
+        payload: data
+    }
+}
+
+export function updateArticle(id, article) {
+    return(dispatch, getState) => {
+        request(UPDATE_ARTICLE_QUERY(id, article))
+            .then(data => dispatch(updateArticleSuccess(data)))
+            .catch(err => dispatch(updateArticleFailure(err)))
+    }
+}
+
+export function updateArticleSuccess(data) {
+    return {
+        type: UPDATE_ARTICLE_SUCCESS,
+        payload: data
+    }
+}
+
+export function updateArticleFailure(data) {
+    return {
+        type: UPDATE_ARTICLE_FAILURE,
         payload: data
     }
 }

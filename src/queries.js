@@ -45,3 +45,25 @@ export const ADD_ARTICLE_QUERY = function(article) {
     }
   `
 }
+
+export const UPDATE_ARTICLE_QUERY = function(id, article) {
+  return `
+    mutation {
+      updateArticle(id: "${id}", article: {
+                                title: "${article.title}",
+                                author: "${article.author}",
+                                content: "${article.content}",
+                                tags: "${article.tags}"
+                                published: ${article.published}
+                              }
+      ) {
+        id
+        author
+        content
+        tags
+        published
+        title
+      }
+    }
+  `
+}

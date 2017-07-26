@@ -34,7 +34,8 @@
     justify-content: center;
 }
 
-.SingleArticle-Delete {
+.SingleArticle-Delete,
+.SingleArticle-Update {
     background: none;
     border: 0;
     font-size: 2em;

@@ -7,6 +7,7 @@ function SingleArticle(props) {
             <article className="SingleArticle">
                 <div className="SingleArticle-Menu">
                     <h1 className="SingleArticle-Name">{props.title}</h1>
+                    <button className="SingleArticle-Update fa fa-pencil" onClick={props.updateArticle}/>
                     <button className="SingleArticle-Delete fa fa-trash" onClick={props.deleteArticle}/>
                 </div>
                 <div className="SingleArticle-Author">
